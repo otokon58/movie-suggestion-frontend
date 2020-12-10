@@ -62,7 +62,7 @@ export default class EditDirector extends Component {
             console.log(err);
         })
 
-       window.location = '/~21993735/director';
+       window.location = '/~21993735/';
     }
 
     render() {
