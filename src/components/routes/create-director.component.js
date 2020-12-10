@@ -56,6 +56,8 @@ export default class CreateDirector extends Component {
             alert('Something went wrong');
         })
 
+        window.location('/~21993735/director')
+
     }
 
     render() {

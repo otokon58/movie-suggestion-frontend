@@ -29,17 +29,7 @@ export default class EditDirector extends Component {
         })
         .catch(err => console.log(err));
 
-        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
-        .then(response => {
-            if(response.data.length > 0){
-                this.setState({
-                    directors: response.data.map(director => director.directorname),
-                    
-                });
-                console.log(this.state.directors);
-            }
-        })
-        .catch(err => console.log(err));
+        
     }
     
 
@@ -72,7 +62,7 @@ export default class EditDirector extends Component {
             console.log(err);
         })
 
-       window.location = '/director';
+       window.location = '/~21993735/director';
     }
 
     render() {

@@ -105,7 +105,7 @@ export default class EditMovie extends Component {
             console.log(err);
         })
 
-       window.location = '/';
+       window.location = '/~21993735/';
     }
 
     render() {

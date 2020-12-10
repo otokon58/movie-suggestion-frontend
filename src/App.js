@@ -17,11 +17,11 @@ function App() {
         <Navbar />
         <br/>
         <Route path="/~21993735/" exact component={MovieList}/>
-        <Route path="/movie/edit/:id"  component={EditMovie}/>
-        <Route path="/movie/create"  component={CreateMovie}/>
-        <Route path="/director"  exact component={DirectorList}/>
-        <Route path="/director/create"  component={CreateDirector}/>
-        <Route path="/director/edit/:id"  component={EditDirector}/>
+        <Route path="/~21993735/movie/edit/:id"  component={EditMovie}/>
+        <Route path="/~21993735/movie/create"  component={CreateMovie}/>
+        <Route path="/~21993735/director"  exact component={DirectorList}/>
+        <Route path="/~21993735/director/create"  component={CreateDirector}/>
+        <Route path="/~21993735/director/edit/:id"  component={EditDirector}/>
       </div>
     </Router>
     

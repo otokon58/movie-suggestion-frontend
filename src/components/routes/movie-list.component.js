@@ -13,7 +13,7 @@ const Movie = props => (
         <td>{props.movie.duration}</td>
         <td>{props.movie.date.substring(0,10)}</td>
         <td>
-            <Link to={"/movie/edit/"+props.movie._id}>edit</Link> | <a href="#" onClick={() => { props.deleteMovie(props.movie._id) }}>delete</a>
+            <Link to={"/~21993735/movie/edit/"+props.movie._id}>edit</Link> | <a href="#" onClick={() => { props.deleteMovie(props.movie._id) }}>delete</a>
         </td>
     </tr>
 )

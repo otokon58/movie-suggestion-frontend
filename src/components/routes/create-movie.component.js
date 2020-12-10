@@ -92,7 +92,7 @@ export default class CreateMovie extends Component {
         })
         .catch(err => alert(err))
     
-            window.location = '/';
+            window.location = '/~21993735/';
     }
 
     render() {
