@@ -8,7 +8,7 @@ const Movie = props => (
         <td>{props.movie.moviename}</td>
         <td>{props.movie.description}</td>
         <td>{props.movie.duration}</td>
-        <td>{props.movie.date}</td>
+        <td>{props.movie.date.substring(0,10)}</td>
         <td>
             <Link to={"/movie/edit/"+props.movie._id}>edit</Link> | <a href="#" onClick={() => { props.deleteMovie(props.movie._id) }}>delete</a>
         </td>
@@ -25,7 +25,7 @@ export default class MovieList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/movie/')
+        axios.get('https://movie-suggestion-api.herokuapp.com/movie/')
         .then(response =>{
             this.setState({
                 movies: response.data
@@ -34,7 +34,7 @@ export default class MovieList extends Component {
     }
 
     deleteMovie(id) {
-        axios.delete('http://localhost:5000/movie/'+id)
+        axios.delete('https://movie-suggestion-api.herokuapp.com/movie/'+id)
           .then(response => { console.log(response.data)});
     
         this.setState({

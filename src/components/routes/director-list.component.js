@@ -22,7 +22,7 @@ export default class DirectorList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/director/')
+        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
         .then(response =>{
             this.setState({
                 directors: response.data
@@ -31,7 +31,7 @@ export default class DirectorList extends Component {
     }
 
     deleteDirector(id) {
-        axios.delete('http://localhost:5000/director/'+id)
+        axios.delete('https://movie-suggestion-api.herokuapp.com/director/'+id)
           .then(response => { console.log(response.data)});
     
         this.setState({

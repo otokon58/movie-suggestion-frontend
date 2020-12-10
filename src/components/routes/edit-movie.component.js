@@ -25,7 +25,7 @@ export default class EditMovie extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/movie/' + this.props.match.params.id)
+        axios.get('https://movie-suggestion-api.herokuapp.com/movie/' + this.props.match.params.id)
         .then(response => {
            // const selectedMovie = response.data;
             this.setState({
@@ -38,7 +38,7 @@ export default class EditMovie extends Component {
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:5000/director/')
+        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
         .then(response => {
             if(response.data.length > 0){
                 this.setState({
@@ -92,7 +92,7 @@ export default class EditMovie extends Component {
             duration: this.state.duration,
             date: this.state.date
         };
-        axios.post('http://localhost:5000/movie/update/' + this.props.match.params.id, movie )
+        axios.post('https://movie-suggestion-api.herokuapp.com/movie/update/' + this.props.match.params.id, movie )
         .then(response => {
             alert('The movie is updated succesfully');
             console.log(response.data);

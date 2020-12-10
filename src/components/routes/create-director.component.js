@@ -39,7 +39,7 @@ export default class CreateDirector extends Component {
 
         console.log(director);
 
-        axios.post('http://localhost:5000/director/add', director)
+        axios.post('https://movie-suggestion-api.herokuapp.com/director/add', director)
         .then(response => {
             console.log(response.data);
             alert('Director is added succesfully');

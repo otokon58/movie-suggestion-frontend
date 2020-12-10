@@ -25,7 +25,7 @@ export default class CreateMovie extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/director/')
+        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
         .then(response => {
             if(response.data.length > 0){
                 this.setState({
@@ -65,7 +65,7 @@ export default class CreateMovie extends Component {
     onChangeDate(date) {
         this.setState({
           date: date
-        })
+        });
       }
 
     onSubmit(e){
@@ -81,21 +81,15 @@ export default class CreateMovie extends Component {
 
         console.log(movie);
 
-        axios.post('http://localhost:5000/movie/add', movie)
+        axios.post('https://movie-suggestion-api.herokuapp.com/movie/add', movie)
         .then(response => {
-            alert('Movie is added succesfully');
-            this.setState({
-                directorname: '',
-                moviename: '',
-                description: '',
-                duration: '',
-                date: new Date(),
-            });
+            alert(response.data);
+            
             console.log(response.data);
         })
-        .catch(err => console.log(err))
-
-       window.location = '/';
+        .catch(err => alert(err))
+    
+            window.location = '/';
     }
 
     render() {

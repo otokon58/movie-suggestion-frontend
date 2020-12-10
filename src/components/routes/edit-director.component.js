@@ -16,7 +16,7 @@ export default class EditDirector extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/director/' + this.props.match.params.id)
+        axios.get('https://movie-suggestion-api.herokuapp.com/director/' + this.props.match.params.id)
         .then(response => {
            // const selectedMovie = response.data;
             this.setState({
@@ -26,7 +26,7 @@ export default class EditDirector extends Component {
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:5000/director/')
+        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
         .then(response => {
             if(response.data.length > 0){
                 this.setState({
@@ -59,7 +59,7 @@ export default class EditDirector extends Component {
             directorname: this.state.directorname,
             description: this.state.description,
         };
-        axios.post('http://localhost:5000/director/update/' + this.props.match.params.id, director )
+        axios.post('https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id, director )
         .then(response => {
             alert('The director is updated successfully');
             console.log(response.data);
