@@ -16,7 +16,7 @@ function App() {
       <div className="container">
         <Navbar />
         <br/>
-        <Route path="/" exact component={MovieList}/>
+        <Route path="/~21993735/" exact component={MovieList}/>
         <Route path="/movie/edit/:id"  component={EditMovie}/>
         <Route path="/movie/create"  component={CreateMovie}/>
         <Route path="/director"  exact component={DirectorList}/>

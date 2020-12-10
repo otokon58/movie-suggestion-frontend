@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Directors'
 
 const Director = props => (
     <tr>
@@ -51,6 +54,9 @@ export default class DirectorList extends Component {
     render() {
         return (
             <div >
+                <Helmet>
+                    <title>{ TITLE }</title>
+                </Helmet>
                 <table class="table">
                 <thead>
                     <tr>

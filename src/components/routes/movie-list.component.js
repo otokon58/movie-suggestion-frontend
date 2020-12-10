@@ -1,6 +1,9 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Movies'
 
 const Movie = props => (
     <tr>
@@ -54,6 +57,9 @@ export default class MovieList extends Component {
     render() {
         return (
             <div >
+                <Helmet>
+                    <title>{ TITLE }</title>
+                </Helmet>
                 <table class="table">
                 <thead>
                     <tr>

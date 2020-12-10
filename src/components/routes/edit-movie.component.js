@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Edit Movie'
 
 export default class EditMovie extends Component {
     constructor(props){
@@ -108,6 +111,9 @@ export default class EditMovie extends Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>{ TITLE }</title>
+                </Helmet>
                 <h3>Edit "{this.state.moviename}"</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className='form-group'>

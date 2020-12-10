@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Add Director'
 
 export default class CreateDirector extends Component {
     constructor(props){
@@ -58,6 +61,9 @@ export default class CreateDirector extends Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>{ TITLE }</title>
+                </Helmet>
                 <h3>Add new movie</h3>
                 <form onSubmit={this.onSubmit}>
                         <div className='form-group'> 

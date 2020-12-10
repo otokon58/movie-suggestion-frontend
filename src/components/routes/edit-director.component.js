@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+
+const TITLE = 'Edit Director'
 
 export default class EditDirector extends Component {
     constructor(props){
@@ -75,6 +78,9 @@ export default class EditDirector extends Component {
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>{ TITLE }</title>
+                </Helmet>
                 <h3>Edit "{this.state.directorname}"</h3>
                 <form onSubmit={this.onSubmit}>
                         <div className='form-group'> 
