@@ -66,17 +66,17 @@ export default class CreateDirector extends Component {
                 <Helmet>
                     <title>{ TITLE }</title>
                 </Helmet>
-                <h3>Add new movie</h3>
+                <h3>Add new director</h3>
                 <form onSubmit={this.onSubmit}>
                         <div className='form-group'> 
                             <label >Director Name: </label>
-                            <input required value={this.state.directorname} onChange={this.onChangeDirectorname} type="text" class="form-control" aria-describedby="helpId" placeholder="Big Fish"/>
+                            <input required value={this.state.directorname} onChange={this.onChangeDirectorname} type="text" class="form-control" aria-describedby="helpId" placeholder="Tim Burton"/>
                             <small id="helpId" class="form-text text-muted">Insert the director's name</small>
                         </div>
                         <div className='form-group'>
                             <label >Description: </label>
-                            <input value={this.state.description} onChange={this.onChangeDescription} type="text" class="form-control" aria-describedby="helpId" placeholder="The movie which is watched first together"/>
-                            <small id="helpId" class="form-text text-muted">About the movie</small>
+                            <input value={this.state.description} onChange={this.onChangeDescription} type="text" class="form-control" aria-describedby="helpId" placeholder="The director of movie which we first watched together"/>
+                            <small id="helpId" class="form-text text-muted">About the director</small>
                         </div>
                        
                     <div className="form-group">
