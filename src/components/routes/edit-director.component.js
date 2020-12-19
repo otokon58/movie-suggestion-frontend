@@ -10,11 +10,13 @@ export default class EditDirector extends Component {
 
         this.onChangeDirectorname = this.onChangeDirectorname.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeDirectorImg = this.onChangeDirectorImg.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             directorname:'',
             description: '',
+            directorimg: '',
         };
     }
 
@@ -24,6 +26,7 @@ export default class EditDirector extends Component {
            // const selectedMovie = response.data;
             this.setState({
                 directorname: response.data.directorname,
+                directorimg: response.data.directorimg,
                 description: response.data.description,
             });
         })
@@ -39,6 +42,13 @@ export default class EditDirector extends Component {
         });
     }
 
+    onChangeDirectorImg(e){
+        let file = e.target.files[0]
+        
+        this.setState({directorimg: file});
+    }
+    
+
     onChangeDescription(e){
         this.setState({
             description: e.target.value
@@ -48,19 +58,54 @@ export default class EditDirector extends Component {
     onSubmit(e){
         e.preventDefault();
 
-        const director ={
-            directorname: this.state.directorname,
-            description: this.state.description,
-        };
-        axios.post('https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id, director )
-        .then(response => {
-            alert('The director is updated successfully');
+
+        let directorname = this.state.directorname;
+        let description = this.state.description;
+        let directorimg = this.state.directorimg;
+        let formdata = new FormData();
+
+        formdata.append('directorname',directorname);
+        formdata.append('description', description);
+        formdata.append('directorimg',directorimg);
+
+        console.log(formdata);
+
+        axios({
+            url: 'https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id,
+            method: "POST",
+            headers:{
+                "Content-Type": "multipart/form-data",
+            },
+            data: formdata
+        }).then(response => {
             console.log(response.data);
+            alert('Director is added succesfully');
+            this.setState({
+                directorname:'',
+                description: '',
+                directorimg: '',
+                
+            });
         })
         .catch(err => {
-            alert('Something went wrong');
             console.log(err);
+            alert(err);
         });
+
+        // const director ={
+        //     directorname: this.state.directorname,
+        //     description: this.state.description,
+        //     directorimg : this.state.directorimg
+        // };
+        // axios.post('https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id, director )
+        // .then(response => {
+        //     alert('The director is updated successfully');
+        //     console.log(response.data);
+        // })
+        // .catch(err => {
+        //     alert('Something went wrong');
+        //     console.log(err);
+        // });
     }
 
     render() {
@@ -76,6 +121,10 @@ export default class EditDirector extends Component {
                             <input value={this.state.directorname} onChange={this.onChangeDirectorname} type="text" class="form-control" aria-describedby="helpId" placeholder="Big Fish"/>
                             <small id="helpId" class="form-text text-muted">Insert the director's name</small>
                         </div>
+                        <div className='form-group'>
+                            <label className="form-label" for="customFile">Default file input example</label>
+                            <input type="file" name="file" class="form-control" id="customFile" onChange={e => this.onChangeDirectorImg(e)} />  
+                        </div>    
                         <div className='form-group'>
                             <label >Description: </label>
                             <input value={this.state.description} onChange={this.onChangeDescription} type="text" class="form-control" aria-describedby="helpId" placeholder="The movie which is watched first together"/>
