@@ -60,9 +60,7 @@ export default class EditDirector extends Component {
         .catch(err => {
             alert('Something went wrong');
             console.log(err);
-        })
-
-       window.location = '/~21993735/';
+        });
     }
 
     render() {

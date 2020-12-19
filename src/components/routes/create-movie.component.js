@@ -90,9 +90,12 @@ export default class CreateMovie extends Component {
             
             console.log(response.data);
         })
-        .catch(err => alert(err))
-    
-            window.location = '/~21993735/';
+        .catch(err => {
+            console.log(err);
+            alert('Something went wrong');
+        })
+
+        
     }
 
     render() {

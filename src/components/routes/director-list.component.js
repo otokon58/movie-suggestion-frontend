@@ -7,6 +7,7 @@ const TITLE = 'Directors'
 
 const Director = props => (
     <tr>
+        <td><img src={'https://movie-suggestion-api.herokuapp.com/' + props.director.directorimg} alt="directorimg" width="100px" height="100px"/></td>
         <td>{props.director.directorname}</td>
         <td>{props.director.description}</td>
         <td>
@@ -60,9 +61,10 @@ export default class DirectorList extends Component {
                 <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">Director</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
+                        <th scope="col">Image</th>    
+                        <th scope="col">Director</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

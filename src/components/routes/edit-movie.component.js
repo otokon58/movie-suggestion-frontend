@@ -103,9 +103,7 @@ export default class EditMovie extends Component {
         .catch(err => {
             alert('Something went wrong');
             console.log(err);
-        })
-
-       window.location = '/~21993735/';
+        });
     }
 
     render() {
