@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'Edit Director'
+const mainurl = "http://54.80.143.136/";
+const TITLE = 'Edit Director';
 
 export default class EditDirector extends Component {
     constructor(props){
@@ -21,7 +22,7 @@ export default class EditDirector extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://movie-suggestion-api.herokuapp.com/director/' + this.props.match.params.id)
+        axios.get(`${mainurl}director/` + this.props.match.params.id)
         .then(response => {
            // const selectedMovie = response.data;
             this.setState({
@@ -71,7 +72,7 @@ export default class EditDirector extends Component {
         console.log(formdata);
 
         axios({
-            url: 'https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id,
+            url: `${mainurl}director/update/${this.props.match.params.id}` ,
             method: "POST",
             headers:{
                 "Content-Type": "multipart/form-data",

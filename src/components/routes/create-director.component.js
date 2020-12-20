@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-
-const TITLE = 'Add Director'
+const mainurl = "http://54.80.143.136/";
+const TITLE = 'Add Director';
 
 export default class CreateDirector extends Component {
     
@@ -64,7 +64,7 @@ export default class CreateDirector extends Component {
         console.log(formdata);
 
         axios({
-            url: 'https://movie-suggestion-api.herokuapp.com/director/add',
+            url: `${mainurl}director/add`,
             method: "POST",
             headers:{
                 "Content-Type": "multipart/form-data",

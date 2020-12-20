@@ -4,7 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'Add Movie'
+const mainurl = "http://54.80.143.136/";
+const TITLE = 'Add Movie';
 
 export default class CreateMovie extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ export default class CreateMovie extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
+        axios.get(`${mainurl}director/`)
         .then(response => {
             if(response.data.length > 0){
                 this.setState({
@@ -84,7 +85,7 @@ export default class CreateMovie extends Component {
 
         console.log(movie);
 
-        axios.post('https://movie-suggestion-api.herokuapp.com/movie/add', movie)
+        axios.post(`${mainurl}movie/add`, movie)
         .then(response => {
             alert(response.data);
             

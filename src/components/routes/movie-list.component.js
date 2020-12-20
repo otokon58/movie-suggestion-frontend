@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'Movies'
+const mainurl = "http://54.80.143.136/";
+const TITLE = 'Movies';
 
 const Movie = props => (
     <tr>
@@ -28,7 +29,7 @@ export default class MovieList extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://movie-suggestion-api.herokuapp.com/movie/')
+        axios.get(`${mainurl}movie/`)
         .then(response =>{
             this.setState({
                 movies: response.data
@@ -37,7 +38,7 @@ export default class MovieList extends Component {
     }
 
     deleteMovie(id) {
-        axios.delete('https://movie-suggestion-api.herokuapp.com/movie/'+id)
+        axios.delete(`${mainurl}movie/${id}`)
           .then(response => { console.log(response.data)});
     
         this.setState({

@@ -3,11 +3,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'Directors'
+const mainurl = "http://54.80.143.136/";
+const TITLE = 'Directors';
 
 const Director = props => (
     <tr>
-        <td><img src={'https://movie-suggestion-api.herokuapp.com/' + props.director.directorimg} alt="directorimg" width="100px" height="100px"/></td>
+        <td><img src={mainurl + props.director.directorimg} alt="directorimg" width="100px" height="100px"/></td>
         <td>{props.director.directorname}</td>
         <td>{props.director.description}</td>
         <td>
@@ -26,7 +27,7 @@ export default class DirectorList extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://movie-suggestion-api.herokuapp.com/director/')
+        axios.get(`${mainurl}director/`)
         .then(response =>{
             this.setState({
                 directors: response.data
@@ -35,7 +36,7 @@ export default class DirectorList extends Component {
     }
 
     deleteDirector(id) {
-        axios.delete('https://movie-suggestion-api.herokuapp.com/director/'+id)
+        axios.delete(`${mainurl}director/${id}`)
           .then(response => { console.log(response.data)});
     
         this.setState({
