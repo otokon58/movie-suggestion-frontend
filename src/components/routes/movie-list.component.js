@@ -8,8 +8,10 @@ const TITLE = 'Movies';
 
 const Movie = props => (
     <tr>
+        <td><img src={mainurl + props.movie.posterimg} alt="posterimg" width="100px" height="200px"/></td>
         <td>{props.movie.directorname}</td>
         <td>{props.movie.moviename}</td>
+        <td>{props.movie.genre}</td>
         <td>{props.movie.description}</td>
         <td>{props.movie.duration}</td>
         <td>{props.movie.date.substring(0,10)}</td>
@@ -64,8 +66,10 @@ export default class MovieList extends Component {
                 <table class="table">
                 <thead>
                     <tr>
+                    <th scope="col">Poster</th>
                     <th scope="col">Director</th>
                     <th scope="col">Movie</th>
+                    <th scope="col">Genre</th>
                     <th scope="col">Description</th>
                     <th scope="col">Duration</th>
                     <th scope="col">Date</th>

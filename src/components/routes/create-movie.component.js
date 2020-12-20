@@ -13,6 +13,8 @@ export default class CreateMovie extends Component {
 
         this.onChangeDirectorname = this.onChangeDirectorname.bind(this);
         this.onChangeMoviename = this.onChangeMoviename.bind(this);
+        this.onChangeGenre = this.onChangeGenre.bind(this);
+        this.onChangePosterImg = this.onChangePosterImg.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
@@ -21,6 +23,9 @@ export default class CreateMovie extends Component {
         this.state = {
             directorname:'',
             moviename: '',
+            genre: '',
+            genres:[],
+            posterimg: '',
             description: '',
             duration: 0,
             date: new Date(),
@@ -39,12 +44,34 @@ export default class CreateMovie extends Component {
             }
         })
         .catch(err => console.log(err));
+
+        axios.get(`${mainurl}genre/`)
+        .then(response => {
+            if(response.data.length > 0){
+                this.setState({
+                    genres: response.data.map(genre => genre.genre),
+                    genre: response.data[0].genre
+                })
+            }
+        })
+        .catch(err => console.log(err));
     }
     
+    onChangePosterImg(e){
+        let file = e.target.files[0]
+        
+        this.setState({posterimg: file});
+    }
 
     onChangeDirectorname(e){
         this.setState({
             directorname: e.target.value
+        });
+    }
+
+    onChangeGenre(e){
+        this.setState({
+            genre: e.target.value
         });
     }
 
@@ -75,26 +102,59 @@ export default class CreateMovie extends Component {
     onSubmit(e){
         e.preventDefault();
 
-        const movie ={
-            directorname: this.state.directorname,
-            moviename: this.state.moviename,
-            description: this.state.description,
-            duration: this.state.duration,
-            date: this.state.date
-        }
+        // const movie ={
+        //     directorname: this.state.directorname,
+        //     moviename: this.state.moviename,
+        //     description: this.state.description,
+        //     duration: this.state.duration,
+        //     date: this.state.date
+        // }
 
-        console.log(movie);
+        let directorname = this.state.directorname;
+        let moviename = this.state.moviename;
+        let genre = this.state.genre;
+        let posterimg = this.state.posterimg;
+        let description = this.state.description;
+        let duration = this.state.duration;
+        let date = this.state.date;
+        let formdata = new FormData();
 
-        axios.post(`${mainurl}movie/add`, movie)
-        .then(response => {
-            alert(response.data);
-            
+        formdata.append('directorname',directorname);
+        formdata.append('moviename',moviename);
+        formdata.append('genre',genre);
+        formdata.append('posterimg',posterimg);
+        formdata.append('description', description);
+        formdata.append('duration',duration);
+        formdata.append('date',date);
+
+        console.log(formdata);
+
+        axios({
+            url: `${mainurl}movie/add`,
+            method: "POST",
+            headers:{
+                "Content-Type": "multipart/form-data",
+            },
+            data: formdata
+        }).then(response => {
             console.log(response.data);
+            alert('Movie is added succesfully');
         })
         .catch(err => {
             console.log(err);
             alert('Something went wrong');
-        })
+        });
+
+        // axios.post(`${mainurl}movie/add`, movie)
+        // .then(response => {
+        //     alert(response.data);
+            
+        //     console.log(response.data);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        //     alert('Something went wrong');
+        // });
 
         
     }
@@ -129,6 +189,27 @@ export default class CreateMovie extends Component {
                             <input value={this.state.moviename} onChange={this.onChangeMoviename} type="text" class="form-control" aria-describedby="helpId" placeholder="Big Fish"/>
                             <small id="helpId" class="form-text text-muted">Insert the movie's name</small>
                         </div>
+                        <div className='form-group'>
+                            <label>Genre: </label>
+                            <select ref="genreInput"
+                            required 
+                            className="form-control" 
+                            value={this.state.genre}
+                            onChange={this.onChangeGenre}>
+                            {
+                                this.state.genres.map(function(genre){
+                                    return <option
+                                    key={genre}
+                                    value={genre} > {genre}
+                                    </option>
+                                })
+                            } 
+                            </select>
+                        </div>
+                        <div className='form-group'>
+                            <label className="form-label" for="customFile">Movie Poster: </label>
+                            <input type="file" name="file" class="form-control" id="customFile" onChange={e => this.onChangePosterImg(e)} />  
+                        </div>  
                         <div className='form-group'>
                             <label >Description: </label>
                             <input value={this.state.description} onChange={this.onChangeDescription} type="text" class="form-control" aria-describedby="helpId" placeholder="The movie which is watched first together"/>

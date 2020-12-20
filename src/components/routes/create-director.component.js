@@ -116,7 +116,7 @@ export default class CreateDirector extends Component {
                             <small id="helpId" class="form-text text-muted">Insert the director's name</small>
                         </div>
                         <div className='form-group'>
-                            <label className="form-label" for="customFile">Default file input example</label>
+                            <label className="form-label" for="customFile">Director Porte: </label>
                             <input type="file" name="file" class="form-control" id="customFile" onChange={e => this.onChangeDirectorImg(e)} />  
                         </div>    
                         <div className='form-group'>
