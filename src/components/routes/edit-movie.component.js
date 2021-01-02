@@ -61,12 +61,16 @@ export default class EditMovie extends Component {
 
         axios.get(`${mainurl}genre/`)
         .then(response => {
-            if(response.data.length > 0){
-                this.setState({
-                    genres: response.data.map(genre => genre.genre),
-                    genre: response.data[0].genre
-                })
+            let genresArray = [];
+
+            for (let i = 0; i < response.data[0]['genres'].length; i++) {
+                
+                genresArray.push(response.data[0]['genres'][i]);
             }
+            this.setState({
+                genres: genresArray,
+                genre: genresArray[0]
+            });
         })
         .catch(err => console.log(err));
     }

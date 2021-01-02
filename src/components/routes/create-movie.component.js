@@ -53,20 +53,11 @@ export default class CreateMovie extends Component {
                 
                 genresArray.push(response.data[0]['genres'][i]);
             }
-            console.log(genresArray);
-
             this.setState({
                 genres: genresArray,
-                genre: genresArray[1]
-            })
+                genre: genresArray[0]
+            });
 
-
-            // if(response.data[0].length > 0){
-            //     this.setState({
-            //         genres: response.data[0].map(genre => genre.genre),
-            //         genre: response.data[1].genre
-            //     })
-            // }
         })
         .catch(err => console.log(err));
     }
