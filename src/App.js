@@ -18,15 +18,15 @@ function App() {
       <div className="container">
         <Navbar />
         <br />
-        <Route path="/" exact component={MovieList} />
-        <Route path="/movie/edit/:id" component={EditMovie} />
-        <Route path="/movie/create" component={CreateMovie} />
-        <Route path="/director/" exact component={DirectorList} />
-        <Route path="/director/create" component={CreateDirector} />
-        <Route path="/director/edit/:id" component={EditDirector} />
-        <Route path="/post/" exact component={PostList} />
-        <Route path="/post/create" component={CreatePost} />
-        <Route path="/post/edit/:id" component={EditPost} />
+        <Route path="/~21993735/" exact component={MovieList} />
+        <Route path="/~21993735/movie/edit/:id" component={EditMovie} />
+        <Route path="/~21993735/movie/create" component={CreateMovie} />
+        <Route path="/~21993735/director/" exact component={DirectorList} />
+        <Route path="/~21993735/director/create" component={CreateDirector} />
+        <Route path="/~21993735/director/edit/:id" component={EditDirector} />
+        <Route path="/~21993735/post/" exact component={PostList} />
+        <Route path="/~21993735/post/create" component={CreatePost} />
+        <Route path="/~21993735/post/edit/:id" component={EditPost} />
       </div>
     </Router>
   );

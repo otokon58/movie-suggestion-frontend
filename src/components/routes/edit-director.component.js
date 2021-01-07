@@ -87,21 +87,6 @@ export default class EditDirector extends Component {
         console.log(err);
         alert(err);
       });
-
-    // const director ={
-    //     directorname: this.state.directorname,
-    //     description: this.state.description,
-    //     directorimg : this.state.directorimg
-    // };
-    // axios.post('https://movie-suggestion-api.herokuapp.com/director/update/' + this.props.match.params.id, director )
-    // .then(response => {
-    //     alert('The director is updated successfully');
-    //     console.log(response.data);
-    // })
-    // .catch(err => {
-    //     alert('Something went wrong');
-    //     console.log(err);
-    // });
   }
 
   render() {

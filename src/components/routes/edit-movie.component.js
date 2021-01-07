@@ -37,7 +37,6 @@ export default class EditMovie extends Component {
     axios
       .get(`${mainurl}movie/${this.props.match.params.id}`)
       .then((response) => {
-        // const selectedMovie = response.data;
         this.setState({
           directorname: response.data.directorname,
           moviename: response.data.moviename,
@@ -120,14 +119,6 @@ export default class EditMovie extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-    // const movie ={
-    //     directorname: this.state.directorname,
-    //     moviename: this.state.moviename,
-    //     description: this.state.description,
-    //     duration: this.state.duration,
-    //     date: this.state.date
-    // };
 
     let directorname = this.state.directorname;
     let moviename = this.state.moviename;

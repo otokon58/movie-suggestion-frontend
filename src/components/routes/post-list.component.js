@@ -12,7 +12,7 @@ const Post = (props) => (
     <td>{props.post.title}</td>
     <td>{props.post.article.substring(0, 10)}</td>
     <td>
-      <Link to={'/post/edit/' + props.post._id}>edit</Link> |{' '}
+      <Link to={'/~21993735/post/edit/' + props.post._id}>edit</Link> |{' '}
       <a
         href="#"
         onClick={() => {

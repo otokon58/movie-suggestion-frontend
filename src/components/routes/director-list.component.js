@@ -19,7 +19,7 @@ const Director = (props) => (
     <td>{props.director.directorname}</td>
     <td>{props.director.description}</td>
     <td>
-      <Link to={'/director/edit/' + props.director._id}>edit</Link> |{' '}
+      <Link to={'/~21993735/director/edit/' + props.director._id}>edit</Link> |{' '}
       <a
         href="#"
         onClick={() => {
