@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const mainurl = 'http://54.80.143.136/';
+const mainurl = 'https://otokontest.azurewebsites.net/';
 const TITLE = 'Movies';
 
 const Movie = (props) => (
@@ -23,7 +23,7 @@ const Movie = (props) => (
     <td>{props.movie.duration}</td>
     <td>{props.movie.date.substring(0, 10)}</td>
     <td>
-      <Link to={'/~21993735/movie/edit/' + props.movie._id}>edit</Link> |{' '}
+      <Link to={'/movie/edit/' + props.movie._id}>edit</Link> |{' '}
       <a
         href="#"
         onClick={() => {
@@ -65,13 +65,7 @@ export default class MovieList extends Component {
 
   movieList() {
     return this.state.movies.map((movie) => {
-      return (
-        <Movie
-          movie={movie}
-          deleteMovie={this.deleteMovie}
-          key={movie._id}
-        ></Movie>
-      );
+      return <Movie movie={movie} deleteMovie={this.deleteMovie} key={movie._id}></Movie>;
     });
   }
 

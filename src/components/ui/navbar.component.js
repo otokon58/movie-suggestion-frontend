@@ -6,7 +6,7 @@ export class Navbar extends Component {
     return (
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-warning">
-          <Link to="/~21993735/" className="nav-brand">
+          <Link to="/" className="nav-brand">
             Movie Suggestion
           </Link>
           <button
@@ -24,23 +24,33 @@ export class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <Link to="/~21993735/" className="nav-link">
+                <Link to="/" className="nav-link">
                   Movies
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/~21993735/movie/create" className="nav-link">
+                <Link to="/movie/create" className="nav-link">
                   Add Movie
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/~21993735/director" className="nav-link">
+                <Link to="/director" className="nav-link">
                   Directors
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/~21993735/director/create" className="nav-link">
+                <Link to="/director/create" className="nav-link">
                   Add Director
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/post" className="nav-link">
+                  Post List
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/post/create" className="nav-link">
+                  Add Post
                 </Link>
               </li>
             </ul>

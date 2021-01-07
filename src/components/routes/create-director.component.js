@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-const mainurl = 'http://54.80.143.136/';
+const mainurl = 'https://otokontest.azurewebsites.net/';
 const TITLE = 'Add Director';
 
 export default class CreateDirector extends Component {
@@ -43,11 +43,6 @@ export default class CreateDirector extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    // const director = {
-    //     directorname : this.state.directorname,
-    //     description : this.state.description,
-    //     directorimg : this.state.directorimg,
-    // }
     let directorname = this.state.directorname;
     let description = this.state.description;
     let directorimg = this.state.directorimg;
@@ -80,21 +75,6 @@ export default class CreateDirector extends Component {
         console.log(err);
         alert('Something went wrong');
       });
-
-    // axios.post('https://movie-suggestion-api.herokuapp.com/director/add', director)
-    // .then(response => {
-    //     console.log(response.data);
-    //     alert('Director is added succesfully');
-    //     this.setState({
-    //         directorname:'',
-    //         description: '',
-    //         directorimg: null
-    //     });
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    //     alert('Something went wrong');
-    // });
   }
 
   render() {

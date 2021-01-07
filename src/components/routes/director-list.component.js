@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const mainurl = 'http://54.80.143.136/';
+const mainurl = 'https://otokontest.azurewebsites.net/';
 const TITLE = 'Directors';
 
 const Director = (props) => (
@@ -19,7 +19,7 @@ const Director = (props) => (
     <td>{props.director.directorname}</td>
     <td>{props.director.description}</td>
     <td>
-      <Link to={'/~21993735/director/edit/' + props.director._id}>edit</Link> |{' '}
+      <Link to={'/director/edit/' + props.director._id}>edit</Link> |{' '}
       <a
         href="#"
         onClick={() => {

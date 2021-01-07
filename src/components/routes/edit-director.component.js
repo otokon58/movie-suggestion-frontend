@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-const mainurl = 'http://54.80.143.136/';
+const mainurl = 'https://otokontest.azurewebsites.net/';
 const TITLE = 'Edit Director';
 
 export default class EditDirector extends Component {
@@ -25,7 +25,6 @@ export default class EditDirector extends Component {
     axios
       .get(`${mainurl}director/` + this.props.match.params.id)
       .then((response) => {
-        // const selectedMovie = response.data;
         this.setState({
           directorname: response.data.directorname,
           directorimg: response.data.directorimg,

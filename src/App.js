@@ -8,6 +8,9 @@ import CreateMovie from './components/routes/create-movie.component';
 import CreateDirector from './components/routes/create-director.component';
 import DirectorList from './components/routes/director-list.component';
 import EditDirector from './components/routes/edit-director.component';
+import CreatePost from './components/routes/create-post.component';
+import PostList from './components/routes/post-list.component';
+import EditPost from './components/routes/edit-post.component';
 
 function App() {
   return (
@@ -15,12 +18,15 @@ function App() {
       <div className="container">
         <Navbar />
         <br />
-        <Route path="/~21993735/" exact component={MovieList} />
-        <Route path="/~21993735/movie/edit/:id" component={EditMovie} />
-        <Route path="/~21993735/movie/create" component={CreateMovie} />
-        <Route path="/~21993735/director" exact component={DirectorList} />
-        <Route path="/~21993735/director/create" component={CreateDirector} />
-        <Route path="/~21993735/director/edit/:id" component={EditDirector} />
+        <Route path="/" exact component={MovieList} />
+        <Route path="/movie/edit/:id" component={EditMovie} />
+        <Route path="/movie/create" component={CreateMovie} />
+        <Route path="/director/" exact component={DirectorList} />
+        <Route path="/director/create" component={CreateDirector} />
+        <Route path="/director/edit/:id" component={EditDirector} />
+        <Route path="/post/" exact component={PostList} />
+        <Route path="/post/create" component={CreatePost} />
+        <Route path="/post/edit/:id" component={EditPost} />
       </div>
     </Router>
   );

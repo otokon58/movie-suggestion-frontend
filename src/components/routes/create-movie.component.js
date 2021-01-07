@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
-const mainurl = 'http://54.80.143.136/';
+const mainurl = 'https://otokontest.azurewebsites.net/';
 const TITLE = 'Add Movie';
 
 export default class CreateMovie extends Component {
@@ -267,10 +267,7 @@ export default class CreateMovie extends Component {
           <div className="form-group">
             <label>Date: </label>
             <div>
-              <DatePicker
-                selected={this.state.date}
-                onChange={this.onChangeDate}
-              />
+              <DatePicker selected={this.state.date} onChange={this.onChangeDate} />
             </div>
           </div>
           <div className="form-group">
